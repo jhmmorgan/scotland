@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@100&display=swap');
+
+html, body {
+  margin:0;
+  padding:0;
+  color: #333333;
+
+  /*font-family: Copperplate / Copperplate Gothic Light, sans-serif;*/
+  font-family: 'Titillium Web', sans-serif;
+  font-family: "Thin";
+}
+
+header {
+  font-size: 64px;
+}
+
+
+.container {
+  display:flex;
+  flex-wrap:wrap;
+  align-items: center;
+/*  font-family:'Sans-Serif', cursive;*/
+  font-family: 'Roboto', sans-serif;
+  font-style: "Thin";
+  padding:1vmin;
+}
+
+.panel {
+  background-color:#000;
+  display:inline-block;
+  flex:1 1;
+  height:250px;
+  flex-basis: 200px;
+  margin:1vmin;
+  overflow:hidden;
+  position:relative;
+
+/*
+  border:solid 1px #000;
+  box-shadow:0 6px 6px -6px #000;
+*/
+}
+
+.panel.map {
+  height:50vh;
+  width: 40vw;
+  min-height:400px;
+  flex-basis:40vw;
+}
+
+.panel.padding {
+  width: 1vw;
+  flex-basis:0.1vw;
+}
+
+.panel.header {
+  flex-basis:100vw;
+  width:100vw;
+  height: 10vw;
+  min-width:600px;
+  font-size: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 6px #000;
+  text-align: center;
+}
+
+.panel.text {
+  flex-basis: 90vw;
+  width: 90vw;
+  height: auto;
+  column-count: 2;
+  column-gap: 2.5vw;
+  text-align: justify;
+  
+  padding-right: 2.5vw;
+  padding-left: 2.5vw;
+}
+
+
+
+.text {
+  background-color:#fff;
+  border:solid 1px #000;
+  margin:0;
+  padding:3px 10px;
+}
+
+.top-left {
+  left:-6px;
+  position:absolute;
+  top:-2px;
+  transform:skew(-15deg);
+}
+
+.bottom-right {
+  bottom:-2px;
+  position:absolute;
+  right:-6px;
+  transform:skew(-15deg);
+}
+
+
+/* background colours */
+.panel {
+  background-image:radial-gradient(circle, palegreen, yellowgreen);
+  border:solid 1px #000;
+  box-shadow:0 6px 6px 6px #000;
+  
+}
+
+.panel.padding {
+  background-image: none;  
+  opacity: 0;
+}
+
+.panel.map {
+  background-image:radial-gradient(circle, white, white);
+  border:solid 1px #ddd;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.panel.header {
+  background-image:radial-gradient(circle, white, white);
+  border-right: none;
+  border-left: none;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  box-shadow: none;
+}
+
+.panel.text {
+  background-image:radial-gradient(circle, white, white);
+  border-right: none;
+  border-left: none;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  box-shadow: none;
+}
+
+
+path, path {
+  stroke: black;
+  stroke-width: 0.1px;
+}
+
+path:hover, path.highlighted {
+  fill: tomato;
+}
