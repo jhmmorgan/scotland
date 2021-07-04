@@ -302,5 +302,10 @@ rm(age_tidy, breastfeeding_tidy, immunity_tidy, low_birth_weight_tidy, smoking_t
 #### Datasets ####
 write_csv(low_birth_weight_ratio, "data_weight_ratio.csv")
 write_csv(smoking_ratio, "data_smoking_ratio.csv")
-smoking_dataset = smoking_ratio %>%
-  select(id = LAD20CD, )
+
+age_compare <- age_ratio %>%
+  mutate(age = if_else(Aged_19under >= Aged_35over, 1, 0)) %>% # 1 = 19young, 0 = 35over
+  mutate(value = if_else(Aged_19under >= Aged_35over, Aged_19under, Aged_35over)) %>% # value is the ratio for the highest (19 or 35)
+  select(LAD20CD, DateRange, age, value)
+write_csv(age_compare, "data_age_ratio.csv")
+

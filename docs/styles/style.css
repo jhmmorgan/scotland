@@ -42,10 +42,19 @@ header {
 }
 
 .panel.map {
-  height:50vh;
-  width: 40vw;
-  min-height:400px;
-  flex-basis:40vw;
+  min-height:60vh;
+  max-height: 60vh;
+  min-width: 40vw;
+  max-width: 40vw;
+  flex-basis:none;
+}
+
+.panel.map.mini {
+  min-height:42vh;
+  max-height: 42vh;
+  min-width: 28vw;
+  max-width: 28vw;
+  flex-basis:none;
 }
 
 .panel.padding {
@@ -54,10 +63,9 @@ header {
 }
 
 .panel.header {
-  flex-basis:100vw;
-  width:100vw;
-  height: 10vw;
-  min-width:600px;
+  height: 10vh;
+  min-width:99vw;
+  max-width:99vw;
   font-size: 30px;
 
   display: flex;
@@ -77,6 +85,8 @@ header {
   
   padding-right: 2.5vw;
   padding-left: 2.5vw;
+  padding-top: none;
+  padding-bottom: none;
 }
 
 
@@ -141,6 +151,22 @@ header {
   box-shadow: none;
 }
 
+.panel.text.borderless {
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.panel.text.sources {
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  
+  column-count: 4;
+  font-size: 10px;
+}
 
 path, path {
   stroke: black;
