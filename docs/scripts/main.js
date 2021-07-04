@@ -1,5 +1,5 @@
 // URLS
-const url_data_path = "https://raw.githubusercontent.com/jhmmorgan/scotland/main/data/"
+const url_data_path = "https://raw.githubusercontent.com/jhmmorgan/scotland/main/docs/data/"
 let url_topo_scotland = url_data_path + "topo_scotland_lad.geojson"
 let url_csv_smoker = url_data_path + "data_smoking_ratio.csv"
 let url_csv_weight = url_data_path + "data_weight_ratio.csv"
