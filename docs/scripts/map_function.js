@@ -176,7 +176,6 @@ const map_choropleth_dual = function(topo, data_set, svg, projection, path, colo
           // use function, or return a 0 if the data is not found.
           let data_filtered = getFilteredData(data_set, d.id)[0]||{attribute:"0"} 
           d.total = data_filtered.attribute
-          console.log(data_filtered.pick )
         if (data_filtered.pick == 0) {return colorScale1(d.total)}
             else    { return colorScale2(d.total) }
       });

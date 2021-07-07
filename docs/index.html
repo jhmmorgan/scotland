@@ -10,10 +10,23 @@
     <br><br><header><center>
       An analysis of births and pregnancy in Scotland.
     </center></header><br><br>
+    
     <article class="container">
-      <div class="panel text borderless">
-        Welcome.  An introductory paragraph about this project and these charts go here.
-      </div><div class="panel text borderless"></div><br><br>
+      <div class="panel text borderless one">
+        <p><b>
+          Welcome to a data visualisation produced by James Morgan, as part of the <u>Data Visualisation for Professionals</u> course through the University of Edinburgh.
+        </b></p>
+        <p>
+          Through the use of Scottish Government datasets, explore the health of babies and young children and to see if there's any relationship between various defining attributes, across the 32 Scottish council regions. Those being:
+          <ul>
+            <li> The number of women who are pregant and smoking</li>
+            <li> The age of first time mothers</li>
+            <li> Babies born with a low birth weight</li>
+            <li> The number of women who breast feed</li>
+            <li> The number of babiess who receive vaccines by 24 months</li>
+          </ul>
+        </p>
+      </div>
 
 <!--
       <div class="panel map", id = "map_container">
@@ -25,30 +38,62 @@
 -->
 
       <div class="panel header">Smoking during pregnancy</div>
-      <div class="panel padding"></div>
       <div class="panel map", id = "smoker_map_then"></div>
-      <div class="panel padding"></div>
       <div class="panel map", id = "smoker_map_now"></div>
-      <div class="panel padding"></div>
       
-      <div class="panel text">
-        This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.This is text test.
-        
+      <div class="panel text borderless one">
+        <p>
+          These two choropleth maps show the percentage of women who were current smokers during pregnancy, across Scotland, broken down by the 32 regions.  The darker the colour, the higher the ratio of women who smoked.
+        </p>
+        <p>
+          As you can see, there is a great reduction of women who smoke in 2017, compared to 2000, with some regions reducing this ratio more than others.
+        </p>
+        <p>
+          So, how does this look per region, over the years?
+        </p>
+      </div><br>
+      <img src = "images/smoker_image.png">
+      <div class="panel text borderless one">
+        <p>
+          This facet_wrapped column chart, shows each region's ratio of expecting mothers who are current and former smokers, trasformed into a circle. 
+        </p>
+        <p>
+          Like a clock, starting at 12 o'clock, each segment represents a year. The higher the bar, the higher the ratio of expecting mothers who are current or former smokers
+        </p>
+        <p>
+          Some regions, like the <b>City of Edinburgh</b> have seen an increase in former smokers in pregant women, whereas other regions like <b>Dundee City</b> has seen more current smokers than former, whilst still seeing an overall decrease.
+        </p>
       </div>
 
+
       <div class="panel header">Age of first time mothers</div>
-      <div class="panel padding"></div>
       <div class="panel map mini", id = "age_map_early"></div>
-      <div class="panel padding"></div>
       <div class="panel map mini", id = "age_map_then"></div>
-      <div class="panel padding"></div>
       <div class="panel map mini", id = "age_map_now"></div>
-      <div class="panel padding"></div>
-      <div class="panel text">
-        text about the age of first time mothers goes here.
-        
+      <div class="panel text borderless one">
+        <p>
+          These three choropleth maps show the percentage of women who were either 19 and younger, or 35 and older when they first became mothers. Each region is either purple, if there is a higher percentage of women who were 19 and younger, or orange, if there is a higher percentage of women who were 35 and over.  The darker the colour, the higher the ratio.
+        </p>
+        <p>
+          As you can see, there is a great reduction of younger first time mothers, gradually changing over the years between 2000 to 2016. You can see in 2008, about half of the regions have seen this change.
+        </p>
+        <p>
+          So, how does this look per region, over the years?
+        </p>
+      </div><br>
+      <img src = "images/age_image.png">
+      <div class="panel text borderless one">
+        <p>
+          Most first time mothers are aged between 20 to 34. These visualisation focues on those aged outside of this range.
+        </p>
+        <p>
+          Some regions, like <b>City of Edinburgh</b> and <b>East Dunbartonhire</b> has seen a growing trend of first time mothers being aged 35 or older, with only a small ratio of women aged 19 or younger.
+        </p>
+        <p>
+          Whilst, other regions like <b>Dundee City</b> and <b>North Ayrshire</b> have seen a reducing, but higher ratio of first time mothers who are 19 or younger.
+        </p>
       </div>
-      
+
       <div class="panel header">Babies born with a low birth weight</div>
       <div class="panel padding"></div>
       <div class="panel map", id = "weight_map_then"></div>
