@@ -389,6 +389,7 @@ ggplot(data_weight_smoker_age) +
   scale_x_continuous(breaks = c(1, 2, 3), labels = c("1.00%", "2.00%", "3.00%")) +
   ylab("Ratio of expecting mothers who smoked during pregnancy") +
   scale_y_continuous(breaks = c(10, 20, 30), labels = c("10%", "20%", "30%")) +
+  labs(caption = "Each dot represents one Scottish region, for one year between 2000 to 2017.") +
   theme(
     panel.background = element_rect(fill = "white"),
     panel.grid.major = element_line(size = 0.5, 
