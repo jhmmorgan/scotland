@@ -309,3 +309,92 @@ age_compare <- age_ratio %>%
   select(LAD20CD, DateRange, age, value)
 write_csv(age_compare, "data_age_ratio.csv")
 
+#### Visualisations ####
+
+data_smoker <- smoking_ratio %>%
+  select(LAD20CD, DateRange, Smoker_Current, Smoker_Former) %>%
+  filter(!is.na(Smoker_Current)) %>%
+  pivot_longer(3:4) %>% left_join(LAD_tidy)
+
+ggplot(data_smoker, aes(x = DateRange, y = value, fill = name)) + 
+  geom_col(position = "dodge") + 
+  scale_x_discrete(breaks = c("2001", "2003", "2005", "2007", "2010", "2012", "2014", "2016")) +
+  labs(caption = "Ratio of expecting mothers, who either smoked during pregnancy (current smoker) or formerly smoked prior to pregnancy, from 2000 to 2017.") +
+  facet_wrap(vars(LAD20NM)) +
+  theme_void() + 
+  theme(
+    panel.background = element_rect(fill = "white",
+                                    colour = "white",
+                                    size = 0.5, linetype = "solid"),
+    panel.grid.major = element_line(size = 0.5, linetype = 'solid',
+                                    colour = "lightgrey"),
+    axis.text.x = element_text(size = 7)
+  ) +
+  theme(panel.spacing = unit(1.5, "lines")) +
+  theme(strip.text = element_text(face = "bold"),
+        panel.grid  = element_blank()) +
+  scale_fill_discrete(name = "Smoking during pregnancy", labels = c("Current Smoker", "Former Smoker")) +
+  coord_polar()
+
+
+data_age <- age_ratio %>%
+  select(LAD20CD, DateRange, Aged_19under, Aged_35over) %>%
+  pivot_longer(3:4) %>% left_join(LAD_tidy)
+ggplot(data_age, aes(x = DateRange, y = value, fill = name)) + 
+  geom_col(position = "dodge") + 
+  scale_x_discrete(breaks = c("2000", "2002", "2004", "2006", "2009", "2011", "2013", "2015")) +
+  labs(caption = "Ratio of first time mothers who were aged 35 and over or 19 and younger whilst pregnant, from 1999 to 2016.") +
+  facet_wrap(vars(LAD20NM)) +
+  theme_void() + 
+  theme(
+    panel.background = element_rect(fill = "white",
+                                    colour = "white",
+                                    size = 0.5, linetype = "solid"),
+    panel.grid.major = element_line(size = 0.5, linetype = 'solid',
+                                    colour = "lightgrey"),
+    axis.text.x = element_text(size = 7)
+  ) +
+  theme(panel.spacing = unit(1.5, "lines")) +
+  theme(strip.text = element_text(face = "bold"),
+        panel.grid  = element_blank()) +
+#  theme(axis.text.y = element_text(size = 7, margin=margin(r=20))) +
+#  scale_y_continuous(breaks = c(0, 5, 10, 15, 20, 25), labels = c("0%", "5%", "10%", "15%", "20%", "25%")) +
+  scale_fill_discrete(name = "First Time Mothers", labels = c("% aged 19 or younger", "% aged 35 or over")) +
+  coord_polar()
+
+
+data_weight_smoker_age <- 
+  # Select data around 19under and 35over only
+  age_ratio %>% select(-`20to34`) %>% 
+  # Join the smoker data
+  left_join(smoking_ratio %>% select(LAD20CD, DateRange, Smoker_Current), by = c("LAD20CD", "DateRange")) %>% 
+  # And join the low birth weight data
+  left_join(low_birth_weight_ratio, by = c("LAD20CD", "DateRange")) %>% 
+  left_join(LAD_tidy, by = "LAD20CD") %>%
+  # As we have no smoking data for 1999, remove this year
+  filter(DateRange != 1999) %>% 
+  # Pivot the ages into one name column and one value column
+  pivot_longer(cols = c(Aged_19under, Aged_35over), names_to = "age", values_to = "age_value") %>% 
+  # We now want to select only the age with the highest ratio, 19under or 35over, for each region per year
+  group_by(LAD20CD, DateRange) %>%
+    # New column, with the age category (19under / 35over), if its the highest, or record a dash
+  mutate(age_category = if_else(age_value == max(age_value), age, "-")) %>%
+    # Filter / remove all the dashes - the ages that don't have the highest ratio
+  filter(age_category != "-") %>%
+  select(-age, age_value)
+
+ggplot(data_weight_smoker_age) +
+  geom_point(aes(y = Smoker_Current, x = Low_Weight_Births, color = age_category)) +
+  xlab("Ratio of babies born with a low birth weight") +
+  scale_x_continuous(breaks = c(1, 2, 3), labels = c("1.00%", "2.00%", "3.00%")) +
+  ylab("Ratio of expecting mothers who smoked during pregnancy") +
+  scale_y_continuous(breaks = c(10, 20, 30), labels = c("10%", "20%", "30%")) +
+  theme(
+    panel.background = element_rect(fill = "white"),
+    panel.grid.major = element_line(size = 0.5, 
+                                    linetype = 'dashed',
+                                    colour = "lightgrey"),
+    axis.text.x = element_text(size = 9, margin=margin(t=10, b=10)),
+    axis.text.y = element_text(size = 9, margin=margin(r=10, l=10))) +
+  scale_color_discrete(name = "First Time Mothers", labels = c("Aged 19 or younger", "Aged 35 or over"))
+

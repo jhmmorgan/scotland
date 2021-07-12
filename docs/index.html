@@ -8,7 +8,7 @@
   
   <body>
     <br><br><header><center>
-      An analysis of births and pregnancy in Scotland.
+      An analysis of babies and pregnancy in Scotland.
     </center></header><br><br>
     
     <article class="container">
@@ -95,27 +95,64 @@
       </div>
 
       <div class="panel header">Babies born with a low birth weight</div>
-      <div class="panel padding"></div>
       <div class="panel map", id = "weight_map_then"></div>
-      <div class="panel padding"></div>
       <div class="panel map", id = "weight_map_now"></div>
-      <div class="panel padding"></div>
       
-      <div class="panel header">OTHER</div>
-      <div class="panel map", id = "my_dataviz">
+      <div class="panel text borderless one">
+        <p>
+          Very few births are for babies with a low birth weight, with a ratio between 0% to 4%. There also appears to be little overall change across the country, with some region seeing a smaller ratio of low weight babies at birth and other regions seing a larger ratio of low weight babies at birth. 
+        </p>
+        <p>
+          However, is there a reason for this? Is there a connection between the ratio of low-weight babies, expecting mothers who smoke during pregancy and the ratio of younger or older mothers?
+        </p>
+      </div><br>
+      <img src = "images/weight_smoker_age_image.png", width = "75%", height = "75%">
+      <div class="panel text borderless one">
+        <p>
+          There is a lot to take in here, but the visualisation shows a clear correlation between these attributes.
+        </p>
+        <p>
+          Each dot represents one region and one year. For example, Dundee in 2000, or City of Edinburgh in 2017.
+          <ul>
+            <li>The further to the right a dot is, the higher the ratio of babies born with a low birth weight, for that region and year.</li>
+            <li>The higher the dot is, the higher the ratio of women who smoked during pregancy.</li>
+            <li>The colour of the dot is determined by whether there was a higher ratio of first time mothers, who were aged 19 or younger, or 35 and older.</li>
+          </ul>
+          There appears to be a strong correlation between women who smoked during pregnancy and who had given birth to an underweight baby. In other words, the dots span between the bottom left corner (fewer smokers and fewer underweight babies) to the top right corner (more smokers and more underweight babies).
+        </p>
+        <p>
+          There also appears to be a strong correlation to the age of first time mothers. As in:
+          <ul>
+            <li>Regions with a higher ratio of first time mothers aged 19 or younger, also saw a higher ratio of smokers and underweight babies (top right).</li>
+            <li>Regions with a higher ratio of first time mothers aged 35 or older, also saw a lower ratio of smokers and underweight babies (bottom left).</li>
+          </ul>
+        </p>
+        <p>
+          
+        </p>
+          <br><b>IMPORTANT: </b> It should be pointed out that whilst there appears to be a correlation, this does not suggest a causation. In other words, these attributes may not impact each other directly (a womens age may not impact the weight of their child) and there might be another unknown reason causing this correlation.  
       </div>
+
+      <div class="panel header">Next Steps</div>
       
-      <div class="panel wide", id = "myVisualisation2"></div>
-      <div class="panel wide">
-        <!--
-        <p class="text top-left">Try resizing...</p>
-        <p class="text bottom-right">...it's responsive</p>
-        <p class="speech">A speech bubble</p>
-        <p class="text bottom-right">THE END</p>
-        -->
+      <div class="panel text borderless one">
+        <p>
+          Thank you for taking the time to review this visualisation of babies and mothers in Scotland, over the years.
+        </p>
+        <p>
+          There's a lot more I'd like to add in the future.
+          <ul>
+            <li>I want to add visualisations around women who breast feed and the number of babiess who receive vaccines by 24 months.</li>
+            <li>I'd like to extend the choropleth maps, to include a hover-over action, that provides you, the user, with more information, such as the regions name, population size and the ratio of the given attribute.</li>
+            <li>I'd also like to amend the static images into D3, to allow the same kind of pan/zoom and hover-over experience that I want to provide the choropleth maps.</li>
+            <li>The visualisation isn't mobile friendly, as it doesn't work the best on small screens, which would be great to fix.</li>
+            <li>Finally, I'd also like to provide way for the user to drill down to get specific information about a chosen region or year.</li>
+          </ul>
+        </p>
       </div>
+
       <div class="panel text sources">
-        <b>Sources:</b><br>
+        <b>Sources:</b>
 <br><u>Pregnant and smoking</u>
 <br>https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fsmoking-at-booking
 <br>
@@ -127,7 +164,7 @@
 <br>
 <br><u>Immune within 24 months</u>
 <br>https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2F6-in-1-immunisation
-<br>
+<br><br>
 <br><u>Low birth weight</u>
 <br>https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight
 <br>

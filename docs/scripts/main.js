@@ -72,8 +72,8 @@ Promise.all([d3.json(url_topo_scotland), d3.csv(url_csv_weight)])
   const svg_weight_now  = d3.select("div#weight_map_now")
   
   const color_scale_weight = d3.scaleThreshold()
-    .domain([0, 1, 2, 3, 4, 5])
-    .range(d3.schemeGreens[6]);
+    .domain([0, 1, 2, 3, 4])
+    .range(d3.schemeGreens[5]);
 
   let loaded_map = loadedData[0]
   let data_weight_then = loadedData[1]
