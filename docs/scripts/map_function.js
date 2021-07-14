@@ -63,7 +63,8 @@ const map_choropleth = function(topo, data_set, svg, projection, path, colorScal
 
   // The width and height for the map svg
   let console_width = d3.select("body").node().getBoundingClientRect().width;
-  let map_width = console_width*.28;
+  let svg_width = svg.node().getBoundingClientRect().width;
+  let map_width = svg_width;
   let map_height = map_width * 1.5;
 
   projection.translate([map_width/2, map_height/2])
@@ -119,10 +120,10 @@ const map_choropleth = function(topo, data_set, svg, projection, path, colorScal
   // Create a legend
   let legend_svg = map
     .append("g")
-    .attr("transform", "translate(10,10)");
-  legend({obj:legend_svg, color: colorScale, title: "Legend", width: 135, tickFormat: (d => d + "%")});
+    .attr("transform", "translate(10,25)");
+  legend({obj:legend_svg, color: colorScale, title: "Legend", width: map_width*.4, tickFormat: (d => d + "%")});
   legend_svg.selectAll(".tick text")
-    .attr("font-size", "7")
+    .attr("font-size", "10")
     .attr("font-family", "calibri");
   
   // Allow zooming and panning of the map, by applying the previously defined zoom function
@@ -144,7 +145,8 @@ const map_choropleth_dual = function(topo, data_set, svg, projection, path, colo
 
   // The width and height for the map svg
   let console_width = d3.select("body").node().getBoundingClientRect().width;
-  let map_width = console_width*.28;
+  let svg_width = svg.node().getBoundingClientRect().width;
+  let map_width = svg_width;
   let map_height = map_width * 1.5;
 
   projection.translate([map_width/2, map_height/2])
@@ -200,8 +202,8 @@ const map_choropleth_dual = function(topo, data_set, svg, projection, path, colo
   let legend_svg1 = map.append("g").attr("transform", "translate(10,15)");
   let legend_svg2 = map.append("g").attr("transform", "translate(10,25)");
 
-  legend({obj:legend_svg1, color: colorScale1, title: "Legend", width: 225, tickFormat: d=>""});
-  legend({obj:legend_svg2, color: colorScale2, title: "", width: 225, tickFormat: (d => d + "%")});
+  legend({obj:legend_svg1, color: colorScale1, title: "Legend", width: map_width*.6, tickFormat: d=>""});
+  legend({obj:legend_svg2, color: colorScale2, title: "", width: map_width*.6, tickFormat: (d => d + "%")});
   legend_svg2.selectAll(".tick text")
     .attr("font-size", "10")
     .attr("font-family", "calibri");
