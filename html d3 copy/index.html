@@ -1,0 +1,194 @@
+<!-- Data Visualisations for Profesionals -->
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="https://d3js.org/d3.v7.js"></script> 
+  </head>
+  
+  <body>
+    <br><br><header><center>
+      An analysis of babies and pregnancy in Scotland.
+    </center></header><br><br>
+    
+    <article class="container">
+      <div class="panel text borderless one">
+        <p><b>
+          Welcome to a data visualisation produced by James Morgan, as part of the <u>Data Visualisation for Professionals</u> course through the University of Edinburgh.
+        </b></p>
+        <p>
+          Through the use of Scottish Government datasets, explore the health of babies and young children and to see if there's any relationship between various defining attributes, across the 32 Scottish council regions. Those being:
+          <ul>
+            <li> The number of women who are pregant and smoking</li>
+            <li> The age of first time mothers</li>
+            <li> Babies born with a low birth weight</li>
+            <li> The number of women who breast feed</li>
+            <li> The number of babies who receive vaccines by 24 months</li>
+          </ul>
+        </p>
+      </div>
+
+<!--
+      <div class="panel map", id = "map_container">
+        <p class="speech">A map of Scotland</p>
+        <p class="text bottom-right">Try moving and resizing the map...</p>
+      </div>
+      <div class="panel map" id = "LAD_title">
+      </div>
+-->
+
+      <div class="panel header">Smoking during pregnancy</div>
+      <div class="panel map", id = "smoker_map_then"></div>
+      <div class="panel map", id = "smoker_map_now"></div>
+      
+      <div class="panel text borderless one">
+        <p>
+          These two choropleth maps show the percentage of women who were current smokers during pregnancy, across Scotland, broken down by the 32 regions.  The darker the colour, the higher the ratio of women who smoked.
+        </p>
+        <p>
+          As you can see, there is a great reduction of women who smoke in 2017, compared to 2000, with some regions reducing this ratio more than others.
+        </p>
+        <p>
+          So, how does this look per region, over the years?
+        </p>
+      </div><br>
+      <img src = "images/smoker_image.png">
+      <div class="panel text borderless one">
+        <p>
+          This facet_wrapped column chart, shows each region's ratio of expecting mothers who are current and former smokers, trasformed into a circle. 
+        </p>
+        <p>
+          Like a clock, starting at 12 o'clock, each segment represents a year. The higher the bar, the higher the ratio of expecting mothers who are current or former smokers
+        </p>
+        <p>
+          Some regions, like the <b>City of Edinburgh</b> have seen an increase in former smokers in pregant women, whereas other regions like <b>Dundee City</b> has seen more current smokers than former, whilst still seeing an overall decrease.
+        </p>
+      </div>
+
+
+      <div class="panel header">Age of first time mothers</div>
+      <div class="panel map mini", id = "age_map_early"></div>
+      <div class="panel map mini", id = "age_map_then"></div>
+      <div class="panel map mini", id = "age_map_now"></div>
+      <div class="panel text borderless one">
+        <p>
+          These three choropleth maps show the percentage of women who were either 19 and younger, or 35 and older when they first became mothers. Each region is either purple, if there is a higher percentage of women who were 19 and younger, or orange, if there is a higher percentage of women who were 35 and over.  The darker the colour, the higher the ratio.
+        </p>
+        <p>
+          As you can see, there is a great reduction of younger first time mothers, gradually changing over the years between 2000 to 2016. You can see in 2008, about half of the regions have seen this change.
+        </p>
+        <p>
+          So, how does this look per region, over the years?
+        </p>
+      </div><br>
+      <img src = "images/age_image.png">
+      <div class="panel text borderless one">
+        <p>
+          Most first time mothers are aged between 20 to 34. These visualisation focues on those aged outside of this range.
+        </p>
+        <p>
+          Some regions, like <b>City of Edinburgh</b> and <b>East Dunbartonhire</b> has seen a growing trend of first time mothers being aged 35 or older, with only a small ratio of women aged 19 or younger.
+        </p>
+        <p>
+          Whilst, other regions like <b>Dundee City</b> and <b>North Ayrshire</b> have seen a reducing, but higher ratio of first time mothers who are 19 or younger.
+        </p>
+      </div>
+
+      <div class="panel header">Babies born with a low birth weight</div>
+      <div class="panel map", id = "weight_map_then"></div>
+      <div class="panel map", id = "weight_map_now"></div>
+      
+      <div class="panel text borderless one">
+        <p>
+          Very few births are for babies with a low birth weight, with a ratio between 0% to 4%. There also appears to be little overall change across the country, with some region seeing a smaller ratio of low weight babies at birth and other regions seing a larger ratio of low weight babies at birth. 
+        </p>
+        <p>
+          However, is there a reason for this? Is there a connection between the ratio of low-weight babies, expecting mothers who smoke during pregancy and the ratio of younger or older mothers?
+        </p>
+      </div><br>
+      <img src = "images/weight_smoker_age_image.png">
+      <div class="panel text borderless one">
+        <p>
+          There is a lot to take in here, but the visualisation shows a clear correlation between these attributes.
+        </p>
+        <p>
+          Each dot represents one region and one year. For example, Dundee in 2000, or City of Edinburgh in 2017.
+          <ul>
+            <li>The further to the right a dot is, the higher the ratio of babies born with a low birth weight, for that region and year.</li>
+            <li>The higher the dot is, the higher the ratio of women who smoked during pregancy.</li>
+            <li>The colour of the dot is determined by whether there was a higher ratio of first time mothers, who were aged 19 or younger, or 35 and older.</li>
+          </ul>
+          There appears to be a strong correlation between women who smoked during pregnancy and who had given birth to an underweight baby. In other words, the dots span between the bottom left corner (fewer smokers and fewer underweight babies) to the top right corner (more smokers and more underweight babies).
+        </p>
+        <p>
+          There also appears to be a strong correlation to the age of first time mothers. As in:
+          <ul>
+            <li>Regions with a higher ratio of first time mothers aged 19 or younger, also saw a higher ratio of smokers and underweight babies (top right).</li>
+            <li>Regions with a higher ratio of first time mothers aged 35 or older, also saw a lower ratio of smokers and underweight babies (bottom left).</li>
+          </ul>
+        </p>
+        <p>
+          
+        </p>
+          <br><b>IMPORTANT: </b> It should be pointed out that whilst there appears to be a correlation, this does not suggest a causation. In other words, these attributes may not impact each other directly (a womens age may not impact the weight of their child) and there might be another unknown reason causing this correlation.  
+      </div>
+
+      <div class="panel header">Next Steps</div>
+      
+      <div class="panel text borderless one">
+        <p>
+          Thank you for taking the time to review this visualisation of babies and mothers in Scotland, over the years.
+        </p>
+        <p>
+          There's a lot more I'd like to add in the future.
+          <ul>
+            <li>I want to add visualisations around women who breast feed and the number of babiess who receive vaccines by 24 months.</li>
+            <li>I'd like to extend the choropleth maps, to include a hover-over action, that provides you, the user, with more information, such as the regions name, population size and the ratio of the given attribute.</li>
+            <li>I'd also like to amend the static images into D3, to allow the same kind of pan/zoom and hover-over experience that I want to provide the choropleth maps.</li>
+            <li>The visualisation isn't mobile friendly, as it doesn't work the best on small screens, which would be great to fix.</li>
+            <li>Finally, I'd also like to provide way for the user to drill down to get specific information about a chosen region or year.</li>
+          </ul>
+        </p>
+      </div>
+
+      <div class="panel text sources">
+        <b>Sources:</b>
+<br><u>Pregnant and smoking</u>
+<br>https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fsmoking-at-booking
+<br>
+<br><u>Age of first time mothers</u>
+<br>https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fage-at-first-birth
+<br>
+<br><u>Breast Feeding</u>
+<br>https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Fbreastfeeding
+<br>
+<br><u>Immune within 24 months</u>
+<br>https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2F6-in-1-immunisation
+<br><br>
+<br><u>Low birth weight</u>
+<br>https://statistics.gov.scot/resource?uri=http%3A%2F%2Fstatistics.gov.scot%2Fdata%2Flow-birthweight
+<br>
+<br><u>LAD20CD - 2020 LAD</u>
+<br>https://data.gov.uk/dataset/24d87ad2-0fa9-4b35-816a-89f9d92b0042/local-authority-districts-april-2020-names-and-codes-in-the-united-kingdom
+<br>https://data.gov.uk/dataset/7dcad8af-eab7-45c1-a478-4e6dbc657eae/local-authority-districts-december-2015-full-clipped-boundaries-in-great-britain
+<br>
+<br><u>Contains public sector information licensed under the Open Government Licence v3.0.</u>
+<br>http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+
+
+
+        
+      </div>
+    </article>
+  </body>
+  
+  <script src = "scripts/map_legend.js"></script>
+  <script src = "scripts/map_function.js"></script>
+<!--
+  <script src = "scripts/radial_barchart.js"></script>
+  <script src = "scripts/scatter.js"></script>
+-->
+  <script src = "scripts/main.js"></script>
+
+  
+</html>
