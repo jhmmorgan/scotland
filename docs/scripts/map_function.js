@@ -121,7 +121,7 @@ const map_choropleth = function(topo, data_set, svg, projection, path, colorScal
   let legend_svg = map
     .append("g")
     .attr("transform", "translate(10,25)");
-  legend({obj:legend_svg, color: colorScale, title: "Legend", width: map_width*.4, tickFormat: (d => d + "%")});
+  legend({obj:legend_svg, color: colorScale, title: "Legend", width: map_width*.6, tickFormat: (d => d + "%")});
   legend_svg.selectAll(".tick text")
     .attr("font-size", "10")
     .attr("font-family", "calibri");
